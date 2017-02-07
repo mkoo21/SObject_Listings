@@ -50,6 +50,7 @@ module.exports = React.createClass({
                 pageHeight={this.props.Dimensions.height}
                 recordInfo={this.state.queryFields}
                 iconInfo={this.props.objectConfig.icon}
+                closeDetailsPage={this.props.closeDetailsPage}
             />
         );
     }

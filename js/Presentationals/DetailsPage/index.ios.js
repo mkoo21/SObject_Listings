@@ -20,8 +20,7 @@ var DetailsPage = React.createClass({
         }
     },
     handlePress(){
-        //close this page
-        return
+        this.props.closeDetailsPage()
     },
     componentDidMount(){
         //more efficient way?
