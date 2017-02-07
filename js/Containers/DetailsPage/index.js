@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import DetailsPage from '../../Presentationals/DetailsPage';
+import DetailsPage from './DetailsData';
 import {close_details_page} from './actions';
 
 const mapStateToProps = (state) => {

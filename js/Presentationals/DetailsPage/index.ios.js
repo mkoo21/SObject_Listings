@@ -13,9 +13,18 @@ import {
 var DetailsPage = React.createClass({
     render() {
         return (
-            <View />
+            <View style={styles.popup} />
         );
     }
 });
 
 module.exports = DetailsPage;
+
+var styles = StyleSheet.create({
+    popup: {
+        height: 500,
+        width:500,
+        //TODO: make dynamic
+        backgroundColor:'green'
+    }
+});

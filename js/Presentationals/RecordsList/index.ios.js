@@ -15,9 +15,13 @@ import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 var RecordsList = React.createClass({
     //TODO: Searchbar
+    showDetails(Id){
+        //TODO: pass/use Id
+        this.props.openDetailsPage(this.props.objectDetails);
+    },
     renderRow(rowData){
         return(
-            <ListRow rowData={rowData} />
+            <ListRow rowData={rowData} onPress={this.showDetails} />
         );
     },
     render(){
@@ -52,11 +56,14 @@ var RecordsList = React.createClass({
 module.exports = RecordsList;
 
 var ListRow = React.createClass({
+    handlePress(){
+        this.props.onPress(this.props.rowData.Id);
+    },
     render() {
         //TODO: Open detail pages
        return(
             <View>
-                <TouchableOpacity style={styles.listRow} >
+                <TouchableOpacity style={styles.listRow} onPress={this.handlePress}>
                     <Text style={styles.listText}>{this.props.rowData.Name}</Text>
                 </TouchableOpacity>
             <View style={styles.rowDivider} />
