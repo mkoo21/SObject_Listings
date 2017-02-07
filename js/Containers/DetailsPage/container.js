@@ -22,8 +22,15 @@ module.exports = React.createClass({
             this.setState({
                 recordId : nextProps.recordId
             });
+            var fieldList = nextProps.objectConfig.details.join(", "); //easy lookup fields
+
+            //lookup fields
+            for(var i in nextProps.objectConfig.lookupFields){
+                fieldList += ", " + nextProps.objectConfig.lookupFields[i].referenceName + "." + nextProps.objectConfig.lookupFields[i].nameField;
+            }
+
             //easy fields (query for display value)
-            var soql = "SELECT " + nextProps.objectConfig.details.join(", ") + " FROM " + nextProps.objectConfig.APIName + " WHERE Id = '" + nextProps.recordId + "'";
+            var soql = "SELECT " + fieldList + " FROM " + nextProps.objectConfig.APIName + " WHERE Id = '" + nextProps.recordId + "'";
             forceClient.query(soql, (res) => {
                 if(res.records) {
                     this.setState({
@@ -38,7 +45,12 @@ module.exports = React.createClass({
     render() {
         if(!this.props.showDetailsPage) return null
         return(
-            <DetailsPage />
+            <DetailsPage 
+                pageWidth={this.props.Dimensions.width} 
+                pageHeight={this.props.Dimensions.height}
+                recordInfo={this.state.queryFields}
+                iconInfo={this.props.objectConfig.icon}
+            />
         );
     }
 });

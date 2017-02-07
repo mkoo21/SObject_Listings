@@ -7,7 +7,11 @@ const mapStateToProps = (state) => {
         listItems: state.MainList.listItems,
         showDetailsPage: state.DetailsPage.showDetailsPage,
         objectConfig: state.DetailsPage.objectConfig,
-        recordId: state.DetailsPage.recordId
+        recordId: state.DetailsPage.recordId,
+        Dimensions: {
+            height: state.Root.windowHeight,
+            width: state.Root.windowWidth
+        }
     }
 }
 

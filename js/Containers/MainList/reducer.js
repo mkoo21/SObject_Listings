@@ -19,7 +19,7 @@ const defaultListItems = {
             name: "th-list",
             color:"red"
         }
-        //TODO: Figure out a way to do nested fields (eg shipping address)
+        //ENHANCEMENT: Figure out a way to do nested fields (eg shipping address)
         //Distinguish nested fields from lookup fields - target object is different
     },
     Contact: {
@@ -29,7 +29,14 @@ const defaultListItems = {
         nameField: 'Name',
         details: ['Name', 'Title', 'Department', 'Phone', 'Email'],
         lookupFields: {
-
+            Owner: {
+                nameField: 'Name',
+                referenceName: 'Owner'
+            },
+            'Account Name': {
+                nameField: 'Name',
+                referenceName: 'Account'
+            }
         },
         //TODO: AccountName (lookup to account), owner (lookup to user)
         icon: {
