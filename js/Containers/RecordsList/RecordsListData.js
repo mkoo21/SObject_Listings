@@ -35,7 +35,7 @@ module.exports = React.createClass({
     render() {
         if(this.state.isFetching) return null;
         return(
-            <RecordsList dataSource={this.state.dataSource} objectDetails={this.props.listItems[this.props.route.APIName]} />
+            <RecordsList dataSource={this.state.dataSource} objectDetails={this.props.listItems[this.props.route.APIName]} openDetailsPage={this.props.openDetailsPage} />
         );
     }
 });
