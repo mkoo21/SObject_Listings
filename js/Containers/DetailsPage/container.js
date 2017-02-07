@@ -14,7 +14,7 @@ module.exports = React.createClass({
     getInitialState(){
         return {
             recordId : null,
-            queryFields: {}
+            queryFields: null
         }
     },
     componentWillReceiveProps(nextProps){
@@ -43,7 +43,7 @@ module.exports = React.createClass({
         }
     },
     render() {
-        if(!this.props.showDetailsPage) return null
+        if(!this.props.showDetailsPage || !this.state.queryFields) return null
         return(
             <DetailsPage 
                 pageWidth={this.props.Dimensions.width} 
