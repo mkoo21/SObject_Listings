@@ -17,7 +17,7 @@ var RecordsList = React.createClass({
     //TODO: Searchbar
     showDetails(Id){
         //TODO: pass/use Id
-        this.props.openDetailsPage(this.props.objectDetails);
+        this.props.openDetailsPage(this.props.objectDetails, Id);
     },
     renderRow(rowData){
         return(

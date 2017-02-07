@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
-import DetailsPage from './DetailsData';
+import DetailsPage from './container';
 import {close_details_page} from './actions';
 
 const mapStateToProps = (state) => {
     return {
         listItems: state.MainList.listItems,
         showDetailsPage: state.DetailsPage.showDetailsPage,
-        objectConfig: state.DetailsPage.objectConfig
+        objectConfig: state.DetailsPage.objectConfig,
+        recordId: state.DetailsPage.recordId
     }
 }
 

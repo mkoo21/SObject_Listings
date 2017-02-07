@@ -10,7 +10,10 @@ const defaultListItems = {
         displayName: "Account",
         pluralName: "Accounts",
         nameField: 'Name',
-        details: ['Owner', 'Name', 'AccountNumber', 'Type', 'Industry', 'Rating', 'AnnualRevenue', 'Phone', 'Website'],
+        details: ['Name', 'Type', 'Industry', 'Rating', 'AnnualRevenue', 'Phone', 'Website'],
+        lookupFields: {
+
+        },
         icon: {
             iconSet: "FA",
             name: "th-list",
@@ -24,8 +27,11 @@ const defaultListItems = {
         displayName: "Contact",
         pluralName: "Contacts",
         nameField: 'Name',
-        details: ['Owner', 'Name', 'Title', 'Department', 'Phone', 'Email'],
-        //TODO: AccountName (lookup to account)
+        details: ['Name', 'Title', 'Department', 'Phone', 'Email'],
+        lookupFields: {
+
+        },
+        //TODO: AccountName (lookup to account), owner (lookup to user)
         icon: {
             iconSet: "FA",
             name: "address-card-o",
@@ -37,7 +43,10 @@ const defaultListItems = {
         displayName: "Opportunity",
         pluralName: "Opportunities",
         nameField: 'Name',
-        details: ['Owner', 'Name', 'Type', 'StageName', 'Amount', 'Probability', 'CloseDate'],
+        details: ['Name', 'Type', 'StageName', 'Amount', 'Probability', 'CloseDate'],
+        lookupFields: {
+
+        },
         //TODO: AccountName
         icon: {
             iconSet: "MC",

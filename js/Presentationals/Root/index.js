@@ -34,8 +34,9 @@ var App = React.createClass({
                         onRightButtonPress: () => oauth.logout()
                     }}
                 />
-                
+                <DetailsPage />
             </View>
+
         ); 
     }
 });

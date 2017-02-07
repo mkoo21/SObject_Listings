@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import RecordsList from './RecordsListData';
+import RecordsList from './container';
 import {open_details_page} from './actions';
 
 const mapStateToProps = (state) => {
@@ -11,8 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        openDetailsPage: (objectDetails) => {
-            dispatch(open_details_page(objectDetails));
+        openDetailsPage: (objectDetails, recordId) => {
+            dispatch(open_details_page(objectDetails, recordId));
         }
     }
 }

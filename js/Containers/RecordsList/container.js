@@ -29,7 +29,7 @@ module.exports = React.createClass({
                 }
             }, (err) => {
                 console.log("Object query failed with error: " + err);
-            })
+            });
         }
     },
     render() {

@@ -3,7 +3,8 @@ import {actionTypes as RecordsListActions} from '../RecordsList/actions';
 
 const initialState = {
     showDetailsPage: false,
-    objectConfig: {}
+    objectConfig: {},
+    recordId: null
 }
 
 export default (state = initialState, action) => {
@@ -11,7 +12,9 @@ export default (state = initialState, action) => {
         case RecordsListActions.OPEN_DETAILS_PAGE:
             return {
                 ...state,
-                objectConfig: action.objectDetails
+                objectConfig: action.objectDetails,
+                recordId: action.recordId,
+                showDetailsPage: true
             }
         case actionTypes.CLOSE_DETAILS_PAGE:
             return {

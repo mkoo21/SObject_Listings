@@ -12,7 +12,10 @@ import DetailsPage from '../../Presentationals/DetailsPage';
 
 module.exports = React.createClass({
     getInitialState(){
-        recordId : null
+        return {
+            recordId : null,
+            queryFields: {}
+        }
     },
     componentWillReceiveProps(nextProps){
         if(nextProps.recordId && nextProps.recordId !== this.state.recordId){
@@ -20,15 +23,22 @@ module.exports = React.createClass({
                 recordId : nextProps.recordId
             });
             //easy fields (query for display value)
-            var soql = "SELECT " + this.props.objectConfig.details.join(", ") + " FROM " + this.props.objectConfig.APIName;
+            var soql = "SELECT " + nextProps.objectConfig.details.join(", ") + " FROM " + nextProps.objectConfig.APIName + " WHERE Id = '" + nextProps.recordId + "'";
             forceClient.query(soql, (res) => {
-                if(res.records) return
+                if(res.records) {
+                    this.setState({
+                        queryFields : res.records[0] 
+                    });
+                }
             }, (err) => {
-                console.log("Record details query failed with error: \n" + err)
+                console.log("Record details query failed with error: \n" + err);
             });
         }
     },
     render() {
-        
+        if(!this.props.showDetailsPage) return null
+        return(
+            <DetailsPage />
+        );
     }
 });
