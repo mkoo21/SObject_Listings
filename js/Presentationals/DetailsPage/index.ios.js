@@ -14,6 +14,9 @@ import FAIcon from 'react-native-vector-icons/FontAwesome';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 var DetailsPage = React.createClass({
+    handlePress(){
+        return
+    },
     render() {
         if(this.props.iconInfo.iconSet == 'FA'){
             var icon = (<FAIcon name={this.props.iconInfo.name} size={50} color="white" />)
@@ -22,19 +25,23 @@ var DetailsPage = React.createClass({
             var icon = (<MCIcon name={this.props.iconInfo.name} size={50} color="white" />)
         }
         return (
-            <TouchableOpacity style={[styles.page, {height: this.props.pageHeight, width: this.props.pageWidth}]}>
+            <View style={[styles.page, {height: this.props.pageHeight, width: this.props.pageWidth}]}>
+                <TouchableOpacity style={[styles.page, {height: this.props.pageHeight, width: this.props.pageWidth}]} onPress={this.handlePress} />
                 <View style={[
                     styles.popup, {
                         height: Math.min(600, this.props.pageWidth * 2 / 3),
                         width: Math.min(600, this.props.pageWidth * 2 / 3)
                     }]} >
-                    <ScrollView style={{flex:1, borderRadius:50}}>
-                        <View style={[styles.iconContainer, {backgroundColor: this.props.iconInfo.color}]} >
-                            {icon}
+                    <ScrollView style={{flex:1, borderRadius:50, backgroundColor:'white'}}>
+                        <View style={styles.headerRow} >
+                            <View style={[styles.iconContainer, {backgroundColor: this.props.iconInfo.color}]} >
+                                {icon}
+                            </View>
+                            <Text style={styles.titleText}> {this.props.recordInfo.Name} </Text>
                         </View>
                     </ScrollView>
                 </View>
-            </TouchableOpacity>
+            </View>
         );
     }
 });
@@ -62,6 +69,15 @@ var styles = StyleSheet.create({
         borderRadius:15,
         justifyContent:'center',
         alignItems:'center',
-        marginLeft:10
+    },
+    headerRow:{
+        left:40, 
+        top:40,
+        flexDirection:'row',
+        alignItems:'center'
+    },
+    titleText:{
+        fontSize:40,
+        marginLeft:30
     }
 });
